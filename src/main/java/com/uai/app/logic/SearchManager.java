@@ -1,6 +1,6 @@
 package com.uai.app.logic;
 
-import com.uai.app.dominio.Persona;
+import com.uai.app.dominio.Libro;
 import com.uai.app.dominio.enums.Tittles;
 import com.uai.app.ui.utils.AppUtils;
 import org.apache.commons.text.CaseUtils;
@@ -77,16 +77,16 @@ public class SearchManager {
      * SI queremos especificar nosotros la precision
      *  y que no sea siempre 4 llamamos al metodo de abajo
      */
-    public HashSet<Persona> findPersonByAttribute(Tittles title, String theSearch){
+    public HashSet<Libro> findPersonByAttribute(Tittles title, String theSearch){
         return findPersonByAttribute(title, theSearch, FILTER_MAX_DISTANCE);
     }
 
     //mismo metodo que el de arriba solo que pedimos la precision
-    public HashSet<Persona> findPersonByAttribute(Tittles title, String theSearch, int precision){
+    public HashSet<Libro> findPersonByAttribute(Tittles title, String theSearch, int precision){
         //ahora instancio un mapa con esas claves
-        HashSet<Persona> data = DataManager.getInstance().getData();;
-        HashSet<Persona> ciudadanos = new HashSet<Persona>();
-        for (Persona p : data){
+        HashSet<Libro> data = DataManager.getInstance().getData();;
+        HashSet<Libro> ciudadanos = new HashSet<Libro>();
+        for (Libro p : data){
             //Uso lo mismo que en el data manager
             Class<?> classObj = p.getClass();
             Method printMessage = null;
@@ -134,11 +134,11 @@ public class SearchManager {
     * como valor tendran las personas que viven en ese pais
     * esto es util cuando me piden por ejemplo todos los libros de una seccion etc
      */
-    public Map<String, Set<Persona>> getPeopleByColum(Tittles columName){
+    public Map<String, Set<Libro>> getPeopleByColum(Tittles columName){
         //ahora instancio un mapa con esas claves
-        Map<String, Set<Persona>> resultados = new HashMap<>();
-        HashSet<Persona> data = DataManager.getInstance().getData();;
-        for (Persona p : data){
+        Map<String, Set<Libro>> resultados = new HashMap<>();
+        HashSet<Libro> data = DataManager.getInstance().getData();;
+        for (Libro p : data){
             //primero debo saber que atributo
             // es para saber a que get llamare
             // esto se denomina llamar
@@ -149,11 +149,11 @@ public class SearchManager {
                 String camelCase = CaseUtils.toCamelCase(columName.getVal(), true);
                 printMessage = classObj.getDeclaredMethod("get"+camelCase);
                 String filterName = String.valueOf(printMessage.invoke(p));
-                Set<Persona> ciudadanos = resultados.get(filterName);
+                Set<Libro> ciudadanos = resultados.get(filterName);
                 //Significa que debo crear si es true
                 if (AppUtils.isNull(ciudadanos)){
                     //uso un set para evitar repetidos
-                    ciudadanos = new HashSet<Persona>();
+                    ciudadanos = new HashSet<Libro>();
                 }
                 ciudadanos.add(p);
                 resultados.put(filterName, ciudadanos);

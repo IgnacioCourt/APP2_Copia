@@ -1,7 +1,6 @@
 package com.uai.app.ui;
 
-import com.uai.app.dominio.Persona;
-import com.uai.app.exceptions.DataNotLoadedException;
+import com.uai.app.dominio.Libro;
 import com.uai.app.logic.DataManager;
 import com.uai.app.ui.utils.UAIJFrame;
 
@@ -25,14 +24,14 @@ public class MostrarDatosUI extends UAIJFrame  {
         //obtengo las personas en una matriz
         //recuerden que esta data es la que se leyo antes del archivo
         // hasta aca aun tiene formato de objeto
-        HashSet<Persona> data = DataManager.getInstance().getData();
+        HashSet<Libro> data = DataManager.getInstance().getData();
         //como lo voy a mostrar en una tabla construyo una matriz de strings
         // por lo que es un array de array
         //cada fila sera una array de strings que tendra en cada sub posicion
         // un dato de cada campo
         String[][] dataTabla = new String[data.size()][4];
         int cont = 0;
-        for(Persona p : data) {
+        for(Libro p : data) {
             dataTabla[cont] = p.getDataToCsv();
             cont++;
         }

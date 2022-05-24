@@ -1,14 +1,10 @@
 package com.uai.app.logic;
 
-import com.uai.app.dominio.Persona;
-import com.uai.app.dominio.enums.Tittles;
+import com.uai.app.dominio.Libro;
 import com.uai.app.exceptions.DataNotLoadedException;
 import com.uai.app.ui.utils.*;
-import org.apache.commons.text.CaseUtils;
 
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.*;
 
 /*
@@ -19,7 +15,7 @@ import java.util.*;
  */
 public class DataManager {
 
-    private HashSet<Persona> data;
+    private HashSet<Libro> data;
 
     private static DataManager instance;
 
@@ -36,11 +32,11 @@ public class DataManager {
         return instance;
     }
 
-    public HashSet<Persona> getData() {
+    public HashSet<Libro> getData() {
         return data;
     }
 
-    public void setData(HashSet<Persona> data) {
+    public void setData(HashSet<Libro> data) {
         this.data = data;
     }
 
@@ -51,22 +47,22 @@ public class DataManager {
         }
         //Creo un string para ir sumando ahi la data
         StringBuilder sb = new StringBuilder(data.size()*50);
-        for (Persona p : data){
+        for (Libro p : data){
                sb.append(p);
                sb.append("\n");
         }
         return sb.toString();
     }
 
-    public void agregarPersona(Persona p){
+    public void agregarPersona(Libro p){
         this.data.add(p);
     }
 
-    public void removerPersona(Persona p){
+    public void removerPersona(Libro p){
         this.data.remove(p);
     }
 
-    public void removerPersonas(Collection<Persona> personas){
-        this.data.removeAll(personas);
+    public void removerPersonas(Collection<Libro> libros){
+        this.data.removeAll(libros);
     }
 }

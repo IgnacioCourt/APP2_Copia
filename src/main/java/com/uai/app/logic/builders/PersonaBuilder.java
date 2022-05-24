@@ -1,6 +1,6 @@
 package com.uai.app.logic.builders;
 
-import com.uai.app.dominio.Persona;
+import com.uai.app.dominio.Libro;
 
 public class PersonaBuilder {
 
@@ -31,8 +31,8 @@ public class PersonaBuilder {
         return this;
     }
     //Return the finally consrcuted User object
-    public Persona build() {
-        Persona user =  new Persona();
+    public Libro build() {
+        Libro user =  new Libro();
         user.setAddress(this.address);
         user.setCost(this.cost);
         user.setCountry(this.country);
@@ -41,7 +41,7 @@ public class PersonaBuilder {
         return user;
     }
 
-    private void validateUserObject(Persona user) {
+    private void validateUserObject(Libro user) {
         //Do some basic validations to check
         //if user object does not break any assumption of system
     }

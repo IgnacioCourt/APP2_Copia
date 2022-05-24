@@ -2,9 +2,9 @@ package com.uai.app.dominio;
 
 import com.opencsv.bean.CsvBindByName;
 
-public class Persona implements Comparable<Persona>{
+public class Libro implements Comparable<Libro>{
 
-    public Persona() {
+    public Libro() {
     }
 
     @CsvBindByName(column = "name")
@@ -64,7 +64,7 @@ public class Persona implements Comparable<Persona>{
         return new String[]{ getName().trim(), getAddress().trim(), getCountry().trim(), String.valueOf(getCost()).trim()};
     }
     @Override
-    public int compareTo(Persona o) {
+    public int compareTo(Libro o) {
         return this.name.compareTo(o.getName())*-1;
     }
 }

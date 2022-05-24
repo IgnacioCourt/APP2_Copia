@@ -2,7 +2,7 @@ package com.uai.app.files;
 
 import com.opencsv.CSVWriter;
 import com.opencsv.bean.CsvToBeanBuilder;
-import com.uai.app.dominio.Persona;
+import com.uai.app.dominio.Libro;
 import com.uai.app.logic.DataManager;
 
 import com.uai.app.exceptions.CSVNotFoundException;
@@ -28,12 +28,12 @@ public class FileManager {
         }
     }
 
-    public HashSet<Persona> getData() {
-        List<Persona> beans = null;
+    public HashSet<Libro> getData() {
+        List<Libro> beans = null;
         try {
             FileReader ff = new FileReader(theFile, Charset.forName("UTF-8"));
             beans = new CsvToBeanBuilder(ff)
-                    .withType(Persona.class)
+                    .withType(Libro.class)
                     .build()
                     .parse();
         } catch (FileNotFoundException e) {
@@ -42,7 +42,7 @@ public class FileManager {
             System.err.println("No se puede leer el archivo");
         }
       //  Collections.sort(beans);
-        HashSet<Persona> personasFinales = new HashSet();
+        HashSet<Libro> personasFinales = new HashSet();
         personasFinales.addAll(beans);
         return personasFinales;
     }
@@ -53,9 +53,9 @@ public class FileManager {
             CSVWriter writer = new CSVWriter(t);
             // Aca convierto al csv que necesito
             writer.writeNext(titles, false);
-            HashSet<Persona> data = DataManager.getInstance().getData();
+            HashSet<Libro> data = DataManager.getInstance().getData();
 
-            for(Persona p : data){
+            for(Libro p : data){
                 //significa que lo quiero mantener
                 writer.writeNext(p.getDataToCsv(),false);
             }
