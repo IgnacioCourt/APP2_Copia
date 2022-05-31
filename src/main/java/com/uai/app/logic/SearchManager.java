@@ -21,7 +21,7 @@ public class SearchManager {
     // cuanto mas cercano a 0 es mas exacta la busqueda
     // cuanto mas lejano menos exacta
     // Chila difiere en 1 de Chile por ejemplo
-    public static final int FILTER_MAX_DISTANCE = 4;
+    public static final int FILTER_MAX_DISTANCE = 8;
 
     //lo que me servira para medir las distancias entre dos strings
     private static LevenshteinDistance lv = new LevenshteinDistance();
@@ -85,13 +85,13 @@ public class SearchManager {
     public HashSet<Libro> findPersonByAttribute(Tittles title, String theSearch, int precision){
         //ahora instancio un mapa con esas claves
         HashSet<Libro> data = DataManager.getInstance().getData();;
-        HashSet<Libro> ciudadanos = new HashSet<Libro>();
+        HashSet<Libro> ciudadanos = new HashSet<Libro>();       //cambiar cuidadanos por libros
         for (Libro p : data){
             //Uso lo mismo que en el data manager
             Class<?> classObj = p.getClass();
             Method printMessage = null;
             try {
-                String camelCase = CaseUtils.toCamelCase(title.getVal(), true);
+                String camelCase = CaseUtils.toCamelCase(title.getVal(), true); //podría ser que aca
                 printMessage = classObj.getDeclaredMethod("get"+camelCase);
                 String filterName = String.valueOf(printMessage.invoke(p));
 

@@ -2,41 +2,71 @@ package com.uai.app.logic.builders;
 
 import com.uai.app.dominio.Libro;
 
-public class PersonaBuilder {
+public class PersonaBuilder { //aca tambien siosi
 
-    private String name;
-    private String address;
-    private String country;
-    private int cost;
+    private String titulo;
+    private String autor;
+    private int anio;
+    private int estante_numero;
+    private String estante_seccion;
+    private int piso;
+    private String edificio;
+    private String sede;
 
     public PersonaBuilder() {
     }
 
-    public PersonaBuilder witName(String name) {
-        this.name = name;
+    public PersonaBuilder witTitulo(String titulo) {
+        this.titulo = titulo;
         return this;
     }
-    public PersonaBuilder withAddress(String address) {
-        this.address = address;
-        return this;
-    }
-
-    public PersonaBuilder withCountry(String country) {
-        this.country = country;
+    public PersonaBuilder withAutor(String autor) {
+        this.autor = autor;
         return this;
     }
 
-    public PersonaBuilder withCost(int cost) {
-        this.cost = cost;
+    public PersonaBuilder withAnio(int anio) {
+        this.anio = anio;
         return this;
     }
+
+    public PersonaBuilder withEstante_numero(int estante_numero) {
+        this.estante_numero = estante_numero;
+        return this;
+    }
+
+    public PersonaBuilder withEstante_seccion(String estante_seccion) {
+        this.estante_seccion = estante_seccion;
+        return this;
+    }
+
+    public PersonaBuilder withPiso(int piso) {
+        this.piso = piso;
+        return this;
+    }
+
+    public PersonaBuilder withEdificio(String edificio) {
+        this.edificio = edificio;
+        return this;
+    }
+
+    public PersonaBuilder withSede(String sede) {
+        this.sede = sede;
+        return this;
+    }
+
+
     //Return the finally consrcuted User object
     public Libro build() {
         Libro user =  new Libro();
-        user.setAddress(this.address);
-        user.setCost(this.cost);
-        user.setCountry(this.country);
-        user.setName(this.name);
+        user.setTitulo(this.titulo);
+        user.setAutor(this.autor);
+        user.setAnio(this.anio);
+        user.setEstante_numero(this.estante_numero);
+        user.setEstante_seccion(this.estante_seccion);
+        user.setPiso(this.piso);
+        user.setEdificio(this.edificio);
+        user.setSede(this.sede);
         validateUserObject(user);
         return user;
     }

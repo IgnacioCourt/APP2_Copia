@@ -16,7 +16,7 @@ public class FileManager {
 
     private File theFile;
 
-    private String[] titles = {"name","address","country","cost"};
+    private String[] titles = {"titulo","autor","anio","estante_numero","estante_seccion","piso","edificio","sede"}; //definitivamente aca
     /*
     Reviso si existe el archivo que me van a hacer ocupar
     y sino tiro una excepcion para arriba

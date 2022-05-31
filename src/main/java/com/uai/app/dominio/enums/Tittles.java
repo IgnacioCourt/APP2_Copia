@@ -2,7 +2,7 @@ package com.uai.app.dominio.enums;
 
 public enum Tittles {
 
-    NAME("name"),ADDRESS("address"),COUNTRY("country"),COST("cost");
+    TITULO("titulo"),AUTOR("autor"),ANIO("anio"),ESTANTE_NUMERO("estante numero"),ESTANTE_SECCION("estante_seccion"),PISO("piso"),EDIFICIO("edificio"),SEDE("sede"); //definitivamente aca
 
     private String val;
 

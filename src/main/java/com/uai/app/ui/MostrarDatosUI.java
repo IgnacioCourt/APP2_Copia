@@ -20,7 +20,7 @@ public class MostrarDatosUI extends UAIJFrame  {
         super(title);
         this.setMainPanel(mainPanel);
 
-        String[] titles = {"name","address","country","cost"};
+        String[] titles = {"titulo","autor","anio","estante_numero","estante_seccion","piso","edificio","sede"}; //cambio
         //obtengo las personas en una matriz
         //recuerden que esta data es la que se leyo antes del archivo
         // hasta aca aun tiene formato de objeto
@@ -29,7 +29,7 @@ public class MostrarDatosUI extends UAIJFrame  {
         // por lo que es un array de array
         //cada fila sera una array de strings que tendra en cada sub posicion
         // un dato de cada campo
-        String[][] dataTabla = new String[data.size()][4];
+        String[][] dataTabla = new String[data.size()][8];
         int cont = 0;
         for(Libro p : data) {
             dataTabla[cont] = p.getDataToCsv();

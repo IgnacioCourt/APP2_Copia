@@ -4,67 +4,115 @@ import com.opencsv.bean.CsvBindByName;
 
 public class Libro implements Comparable<Libro>{
 
+    //Aca muchisimas cosas para abajo
+
+
     public Libro() {
     }
 
-    @CsvBindByName(column = "name")
-    private String name;
+    @CsvBindByName(column = "titulo")
+    private String titulo;
 
-    @CsvBindByName(column = "address")
-    private String address;
+    @CsvBindByName(column = "autor")
+    private String autor;
 
-    @CsvBindByName(column = "country")
-    private String country;
+    @CsvBindByName(column = "anio")
+    private int anio;
 
-    @CsvBindByName(column = "cost")
-    private int cost;
+    @CsvBindByName(column = "estante_numero")
+    private int estante_numero;
 
-    public String getName() {
-        return name;
+    @CsvBindByName(column = "estante_seccion")
+    private String estante_seccion;
+
+    @CsvBindByName(column = "piso")
+    private int piso;
+
+    @CsvBindByName(column = "edificio")
+    private String edificio;
+
+    @CsvBindByName(column = "sede")
+    private String sede;
+
+    public String getTitulo() {
+        return titulo;
     }
 
-    public String getAddress() {
-        return address;
+    public String getAutor() {
+        return autor;
     }
 
-    public String getCountry() {
-        return country;
+    public int getAnio() {
+        return anio;
     }
 
-    public int getCost() {
-        return cost;
+    public int getEstante_numero() {
+        return estante_numero;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getEstante_seccion() {
+        return estante_seccion;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public int getPiso() {
+        return piso;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public String getEdificio() {
+        return edificio;
     }
 
-    public void setCost(int cost) {
-        this.cost = cost;
+    public String getSede() {
+        return sede;
+    }
+
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public void setAnio(int anio) {
+        this.anio = anio;
+    }
+
+    public void setEstante_numero(int estante_numero) {
+        this.estante_numero = estante_numero;
+    }
+
+    public void setEstante_seccion(String estante_seccion) {
+        this.estante_seccion = estante_seccion;
+    }
+
+    public void setPiso(int piso) {
+        this.piso = piso;
+    }
+
+    public void setEdificio(String edificio) {
+        this.edificio = edificio;
+    }
+
+    public void setSede(String sede) {
+        this.sede = sede;
     }
 
     @Override
     public String toString() {
         return "{" +
-                "name='" + name + '\'' +
-                ", address='" + address + '\'' +
+                "titulo='" + titulo + '\'' +
+                ", autor='" + autor + '\'' +
                 '}';
     }
 
     public String[] getDataToCsv(){
         // el string.valueOf me convierte el int a string
-        return new String[]{ getName().trim(), getAddress().trim(), getCountry().trim(), String.valueOf(getCost()).trim()};
+        return new String[]{ getTitulo().trim(), getAutor().trim(), String.valueOf(getAnio()).trim(), String.valueOf(estante_numero).trim(),getEstante_seccion().trim(), String.valueOf(getPiso()).trim(),getEdificio().trim(), getSede().trim()};
     }
     @Override
     public int compareTo(Libro o) {
-        return this.name.compareTo(o.getName())*-1;
+        return this.titulo.compareTo(o.getTitulo())*-1;
     }
 }
