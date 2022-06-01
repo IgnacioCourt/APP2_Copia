@@ -9,6 +9,9 @@ public class Libro implements Comparable<Libro>{
 
     public Libro() {
     }
+    public Libro(String titulo){
+        this.titulo=titulo;
+    }
 
     @CsvBindByName(column = "titulo")
     private String titulo;

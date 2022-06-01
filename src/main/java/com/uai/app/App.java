@@ -7,14 +7,11 @@ import com.uai.app.logic.DataManager;
 import com.uai.app.logic.SearchManager;
 import com.uai.app.ui.utils.UIBuilder;
 import com.uai.app.ui.MainMenuUI;
+import com.uai.app.ui.utils.menuConsola.MenuConsola;
 
 import java.io.*;
 import java.util.Map;
-
-/**
- * Hello world!
- *
- */
+import java.util.Scanner;
 
 
 public class App {
@@ -22,7 +19,7 @@ public class App {
     private static FileManager fileManager;
 
     public static void main(String[] args ) throws IOException {
-        System.out.println("COMENZANDO");
+        System.out.println("COMENZANDO APP2 DE BIBLIOTECA");
         String fileName = args[0];
 
         try {
@@ -40,6 +37,16 @@ public class App {
             System.out.println(e.getMessage());
             e.printStackTrace();
         }
+
+        //Mostrar el menu
+        MenuConsola menu_activo = new MenuConsola();
+        menu_activo.mostrar_menu();
+        //Pedir una opcion
+        System.out.println("Por Favor ingrese una opcion del menu : ");
+        Scanner scan = new Scanner(System.in);
+        int num = scan.nextInt();
+        // Llamar al menu con la opcion "num"
+        menu_activo.ejecutar(num);
 
         System.out.println("Terminado");
 

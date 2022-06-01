@@ -85,7 +85,7 @@ public class SearchManager {
     public HashSet<Libro> findPersonByAttribute(Tittles title, String theSearch, int precision){
         //ahora instancio un mapa con esas claves
         HashSet<Libro> data = DataManager.getInstance().getData();;
-        HashSet<Libro> ciudadanos = new HashSet<Libro>();       //cambiar cuidadanos por libros
+        HashSet<Libro> libros = new HashSet<Libro>();       //cambiar cuidadanos por libros
         for (Libro p : data){
             //Uso lo mismo que en el data manager
             Class<?> classObj = p.getClass();
@@ -99,12 +99,12 @@ public class SearchManager {
                 if (printMessage.getReturnType().isPrimitive() ||
                         printMessage.getReturnType().isAssignableFrom(Integer.class)){
                     if (theSearch.trim().equalsIgnoreCase(filterName)){
-                        ciudadanos.add(p);
+                        libros.add(p);
                     }
                 } else {
                     //Con una distancia de 3 estamos bien cubiertos
                     if (lv.apply(theSearch, filterName) < precision){
-                        ciudadanos.add(p);
+                        libros.add(p);
                     }
                 }
 
@@ -118,7 +118,7 @@ public class SearchManager {
             }
 
         }
-        return ciudadanos;
+        return libros;
     }
 
 

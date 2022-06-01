@@ -14,7 +14,7 @@ public class MostrarDatosUI extends UAIJFrame  {
 
     private JPanel mainPanel;
     private JPanel mainTableConatiner;
-    private JTextArea textArea1;
+
 
     public MostrarDatosUI(String title) {
         super(title);

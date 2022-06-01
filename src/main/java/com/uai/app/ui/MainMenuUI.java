@@ -14,8 +14,7 @@ public class MainMenuUI extends UAIJFrame {
 
     private JPanel mainPanel;
     private JButton mostrarDatosButton;
-    private JButton buscarButton;
-    private JButton eliminarButton;
+    private JList list1;
 
 
     public MainMenuUI(String title) {
